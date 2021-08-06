@@ -80,6 +80,7 @@ pipeline {
           env.RELEASE_PRODUCTION = "true"
           env.RELEASE_SKIP_APPROVAL = "false"
           env.RELEASE_VERSION = ""
+          env.ARTIFACT_CHANGELOG_FILE = ""
           //
           // Set variables to use throughout build process by examining the commit messages.
           // For SVN, its once commit per changeset (whereas Got could have multiple commits per changeset)
@@ -412,6 +413,7 @@ pipeline {
               //
               // Re-set in environment for email template scripts
               //
+              env.ARTIFACT_CHANGELOG_FILE = historyEntry
               env.VERSION_CHANGELOG = "<font face=\"courier new\">" + historyEntry.replace("\r\n", "<br>").replace(" ", "&nbsp;") + "</font>"
             }
           }
@@ -427,12 +429,16 @@ pipeline {
         expression { env.SKIP_CI == "false" }
       }
       steps {
-        echo "Store Jenkins Artifacts"
-        archiveArtifacts allowEmptyArchive: true, 
-                          artifacts: 'doc/history.txt,install/dist/jenkins-utility-server.tgz',
-                          followSymlinks: false,
-                          onlyIfSuccessful: true
         script {
+          def artifacts = "doc/history.txt,install/dist/jenkins-utility-server.tgz";
+          if (env.ARTIFACT_CHANGELOG_FILE != "") {
+            artifacts = "${artifacts},${env.ARTIFACT_CHANGELOG_FILE}"
+          }
+          echo "Store Jenkins Artifacts"
+          archiveArtifacts allowEmptyArchive: true, 
+                           artifacts: artifacts,
+                           followSymlinks: false,
+                           onlyIfSuccessful: true
           //
           // Production or nightly release, or not
           //
