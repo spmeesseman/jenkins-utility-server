@@ -181,6 +181,7 @@ pipeline {
           echo "   Force Version       : ${env.RELEASE_VERSION}"
           echo "   Skip CI             : ${env.SKIP_CI}"
           echo "   Skip Approvals      : ${env.RELEASE_SKIP_APPROVAL}"
+        }
       } 
     }
 
