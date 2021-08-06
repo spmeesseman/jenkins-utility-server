@@ -1,0 +1,35 @@
+{
+    "projectName":       "jenkins-utility-server",
+    "branch":            "trunk",
+    "buildCommand": [
+        "npm run lint"
+    ],
+    "changelogFile":     "doc\\history.txt",
+    "changelogHdrFile":  "install\\history-hdr.txt",
+    "distReleasePathSrc":"install\\dist",
+    "emailNotification": "Y",
+    "emailRecip":        "productrelease@pjats.com",
+    "emailSender":       "service_pja@pjats.com",
+    "emailServer":       "10.0.7.152",
+    "emailHrefs": [
+        "https://app1.development.pjats.com/svn/web/filedetails.php?repname=pja&path=%2Fjenkins-utility-server%2Ftrunk%2Fdoc%2Fhistory.txt&usemime=1|History File|History File - WebSVN",
+        "https://app1.development.pjats.com/svn/web/filedetails.php?repname=pja&path=%2Fjenkins-utility-server%2Ftrunk%2FREADME.md&usemime=1|ReadMe File|Readme File - WebSVN",
+        "https://app1.development.pjats.com/projects/set_project.php?project=jenkins-utility-server&make_default=no&ref=roadmap_page.php|Project Roadmap|Roadmap - Projects Board",
+        "https://app1.development.pjats.com/projects/set_project.php?project=jenkins-utility-server&make_default=no&ref=changelog_page.php|Project Changelog|Changelog - Projects Board"
+    ],
+    "githubRelease":     "Y",
+    "githubAssets":      [
+        "CHANGELOG.md|Changelog File",
+        "install\\dist\\app-publisher.tgz|NPM Tarball"
+    ],
+    "githubUser":        "spmeesseman",
+    "npmPackDist":       "Y",
+    "npmRegistry":       "https://npm.development.pjats.com",
+    "npmRelease":        "Y",
+    "repo":              "https://svn.development.pjats.com/pja/jenkins-utility-server",
+    "repoType":          "svn",
+    "skipChangelogEdits":"N",
+    "skipVersionEdits":  "Y",
+    "testEmailRecip":    "smeesseman@pjats.com",
+    "vcWebPath":         "https://app1.development.pjats.com/web/svn/filedetails.php%3Frepname=pja%26usemime=1%26path="
+}

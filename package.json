@@ -1,0 +1,46 @@
+{
+    "name": "@spmeesseman/jenkins-utility-server",
+    "version": "0.0.4",
+    "description": "Jenkins CI Utility Server",
+    "license": "SEE LICENSE FILE",
+    "author":
+    {
+        "name": "Scott Meesseman",
+        "email": "spmeesseman@gmail.com"
+    },
+    "bugs":
+    {
+        "email": "spmeesseman@gmail.com",
+        "url": "https://github.com/spmeesseman/app-publisher/issues"
+    },
+    "homepage": "https://github.com/spmeesseman/app-publisher",
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/spmeesseman/app-publisher.git"
+    },
+    "scripts":{
+        "lint": "eslint -c .eslintrc.json --ext .js app.js ./routes ./bin",
+        "start": "node ./bin/jenkins-utility-server"
+    },
+    "devDependencies": {
+        "eslint": "^7.32.0"
+    },
+    "dependencies": {
+        "argparse": "^1.0.10",
+        "chalk": "^3.0.0",
+        "cookie-parser": "~1.4.4",
+        "express": "~4.16.1",
+        "gradient-string": "^1.2.0",
+        "signale": "^1.4.0"
+    },
+    "main": "./bin/app.js",
+    "bin": {
+        "jenkins-utility-server": "./bin/jenkins-utility-server.js"
+    },
+    "files": [
+        "bin/*.js",
+        "routes",
+        "app.js"
+    ]
+}
