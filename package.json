@@ -2,7 +2,7 @@
     "name": "@spmeesseman/jenkins-utility-server",
     "version": "1.0.0",
     "description": "Jenkins CI Utility Server",
-    "license": "SEE LICENSE FILE",
+    "license": "MIT",
     "author": {
         "name": "Scott Meesseman",
         "email": "spmeesseman@gmail.com"

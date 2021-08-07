@@ -13,29 +13,69 @@
 
 - [Jenkins Utility Server](#jenkins-utility-server)
   - [Introduction](#introduction)
+  - [Requirements](#requirements)
   - [Installation](#installation)
-  - [Getting Started](#getting-started)
+  - [Run the Server](#run-the-server)
+  - [Usage](#usage)
+  - [Endpoints](#endpoints)
+    - [Endpoints - /openfile](#endpoints---openfile)
   - [License Information](#license-information)
 
 ## Introduction
 
-Jenkins Utility Server is a HTTP server that runs on a Jenkins node, that can serve user interface requests via REST API that Jenkins cannot do itself.
+Jenkins Utility Server is a HTTP server that runs on a Jenkins node, that can serve user interface tasks via a pipeline script using a simple HTTP request.
 
 At the time of this writing and for the initial release, only one task is supported - "open file in notepad".
 
+## Requirements
+
+Jenkins HTTP Request Plugin
+
 ## Installation
 
-To install app-publisher globally for convenience, run the following command:
+To install `Jenkins Utility Server` from a command line, run the following command:
 
-    npm install -g @spmeesseman/app-publisher
+    npm install -g @spmeesseman/jenkins-utility-server
 
-To install locally per project, run the following command from the directory containing the projects package.json file:
+## Run the Server
 
-    npm install @spmeesseman/app-publisher
+Run the `Jenkins Utility Server` from a command line using the following command:
 
-## Getting Started
+    jenkins-utility-server
 
-API Endpoint /openfile
+By default, the bound port number is 4322.  To change the bound port number, use the following command:
+
+    jenkins-utility-server --port 6000
+
+## Usage
+
+Simply add a request to a pipeline script invoking `httpRequest` on the appropriate endpoint, for example:
+
+    steps {
+      echo "Jenkins-utility-server: Send request to open changelog in Notepad"
+      def jsonEncWs = WORKSPACE.replace("\\", "\\\\")
+      def bodyJson = "{\"path\": \"${jsonEncWs}\\\\CHANGELOG.md\", \"token\": \"${env.JENKINS_UTILITY_SERVER_TOKEN}\"}"
+      httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: bodyJson, url: "http://localhost:4322/openfile"
+    }
+
+## Endpoints
+
+Endpoints are called by sending a request to the server with the following address format:
+
+    http://localhost:portnumber/endpointname
+
+At the time of this writing and for the initial release, only one task is supported - "open file in notepad".
+
+### Endpoints - /openfile
+
+Usage:
+
+    steps {
+      echo "Jenkins-utility-server: Send request to open changelog in Notepad"
+      def jsonEncWs = WORKSPACE.replace("\\", "\\\\")
+      def bodyJson = "{\"path\": \"${jsonEncWs}\\\\CHANGELOG.md\", \"token\": \"${env.JENKINS_UTILITY_SERVER_TOKEN}\"}"
+      httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: bodyJson, url: "http://localhost:4322/openfile"
+    }
 
 ## License Information
 
