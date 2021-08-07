@@ -1,25 +1,22 @@
 {
     "name": "@spmeesseman/jenkins-utility-server",
-    "version": "0.0.4",
+    "version": "1.0.0",
     "description": "Jenkins CI Utility Server",
     "license": "SEE LICENSE FILE",
-    "author":
-    {
+    "author": {
         "name": "Scott Meesseman",
         "email": "spmeesseman@gmail.com"
     },
-    "bugs":
-    {
+    "bugs": {
         "email": "spmeesseman@gmail.com",
         "url": "https://github.com/spmeesseman/app-publisher/issues"
     },
     "homepage": "https://github.com/spmeesseman/app-publisher",
-    "repository":
-    {
+    "repository": {
         "type": "git",
         "url": "https://github.com/spmeesseman/app-publisher.git"
     },
-    "scripts":{
+    "scripts": {
         "lint": "eslint -c .eslintrc.json --ext .js app.js ./routes ./bin",
         "start": "node ./bin/jenkins-utility-server"
     },
