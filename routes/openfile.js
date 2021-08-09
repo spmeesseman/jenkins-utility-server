@@ -76,7 +76,9 @@ router.post("/openfile", function(req, res, next)
         }, 300000); // 5 minutes
 
         success = true;
-        router.logger.log(`   Success (PID ${proc.pid})`);
+        router.logger.log(`   PID ${proc.pid}`);
+        router.logger.log(`      ${req.body.path})`);
+        router.logger.log("   Success");
     }
 
     res.set("Content-Type", "application/json");
