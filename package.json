@@ -27,7 +27,7 @@
         "argparse": "^1.0.10",
         "chalk": "^3.0.0",
         "cookie-parser": "~1.4.4",
-        "express": "~4.16.1",
+        "express": "~4.17.1",
         "gradient-string": "^1.2.0",
         "signale": "^1.4.0"
     },
