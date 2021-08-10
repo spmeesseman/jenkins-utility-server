@@ -458,10 +458,10 @@ pipeline {
               //
               echo "Perform MantisBT Release, upload build files to SoftwareImages, docs to SharePoint"
               if (env.RELEASE_VERSION == "") {
-                bat "app-publisher --config-name pja --task-mantisbt-release --task-dist-release"
+                bat "app-publisher --config-name pja --task-mantisbt-release --task-npm-release"
               }
               else {
-                bat "app-publisher --config-name pja --task-mantisbt-release --task-dist-release --version-force-next ${env.RELEASE_VERSION}"
+                bat "app-publisher --config-name pja --task-mantisbt-release --task-npm-release --version-force-next ${env.RELEASE_VERSION}"
               }
             }
           }

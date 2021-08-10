@@ -38,3 +38,28 @@ August 6th, 2021
         /openfile
         /closefile
 
+
+Version 1.0.1
+August 9th, 2021
+--------------------------------------------------------------------------------
+********************************************************************************
+***                                                                            *
+*** Verify that the following requirements have been satisfied:                *
+***                                                                            *
+*** Requirements:                                                              *
+*** -------------                                                              *
+***                                                                            *
+***    1.  Operating System            : Windows 7+                            * 
+***                                                                            *
+***    2.  CPU                         : 1.0+ GHz                              *
+***                                                                            *
+***    3.  RAM                         : 128 MB                                *
+***                                                                            *
+***    4.  NodeJS                      : 10+                                   *
+***                                                                            *
+********************************************************************************
+
+1.  Refactoring:  Logging
+
+    Log the path of the opened file in the /openfile endpoint.
+

@@ -1,6 +1,6 @@
 {
     "name": "@spmeesseman/jenkins-utility-server",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Jenkins CI Utility Server",
     "license": "MIT",
     "author": {
@@ -39,5 +39,8 @@
         "bin/*.js",
         "routes",
         "app.js"
-    ]
+    ],
+    "publishConfig": {
+        "access": "public"
+    }
 }
