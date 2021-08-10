@@ -2,3 +2,4 @@
 node_modules
 .publishrc.pja.json
 README.md
+**/*pja.*
